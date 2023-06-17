@@ -30,28 +30,30 @@ class OptimalBranchVertex
         double TRUE_STATE_PRIOR;
 
     public:
-        OptimalBranchVertex(
-            const string& ti_name,  
+        OptimalBranchVertex(const string& ti_name)
+        void setupConnection(
             OptimalBranchVertex * parent_vertex_ = nullptr, 
             OptimalBranchVertex * child_vertex_ = nullptr);
 
         void procObs(
-            //Process observations using the two observation vertices
+            //Process observations using the two observation vertices'
+            //respective procObs() method
             //The exact implementation is system / task dependent.
         );
 
-        void setChainParams(
-            //Parameters of this vertex supplied by the user
+        void setParams(
+            //Parameters supplied by the user
             //This includes:
             //prior for true / false intention
-            //Markov chain parameters for gaze
-            //Markov chain prameters for action
+            //Markov chain parameters for gaze obs vtx 
+            //Markov chain prameters for action obs vtx
         );
 
         void computePosterior();
 
         void resetBeliefEstimation();
 
+        double getTrueStatePosterior();
 };
 
 

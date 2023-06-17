@@ -1,6 +1,8 @@
 #ifndef ACTION_OBS_MARKOV
 #define ACTION_OBS_MARKOV
 
+#include <std_msgs/String.h>
+
 using namespace std;
 
 class ActionObsMarkov
@@ -32,9 +34,9 @@ class ActionObsMarkov
         *   Parameters to be specified by the user
         */
         //Usually we are only interested in past observations within a window
-        const int windowSize;
+        int windowSize;
         //Transition matrix of this particular chain
-        const double TT,TF,FF,FT;
+        double TT,TF,FF,FT;
         
 
     public:
@@ -50,7 +52,8 @@ class ActionObsMarkov
         
 
         void updateChain(const Obs& obs_this)
-        {
+        {//Update chain using the latest observation supplied by the user
+        
             //To avoid instability issue we return ONE TRANSTION likelihood (potentially with front corrected)
             //If no observation is valid, the liklihood reduces to a flat prior
             transitionLikelihoodThis = flat_prior;

@@ -1,16 +1,20 @@
 #include <OptimalBranchVertex.h>
 
-OptimalBranchVertex::OptimalBranchVertex(
-    const string& ti_name, 
-    OptimalBranchVertex * parent_vertex_, 
-    OptimalBranchVertex * child_vertex_):
-vertexName(ti_name),
-parentVertex_(parent_vertex_),
-childVertex_(child_vertex_)
+OptimalBranchVertex::OptimalBranchVertex(const string& ti_name):
+vertexName(ti_name)
 {
     actionObsVtx_ = new ActionObsVertex(vertexName); 
     gazeObsVtx_ = new GazeObsVertex(vertexName); 
 }
+
+void OptimalBranchVertex::setupConnection(
+            OptimalBranchVertex * parent_vertex_ = nullptr, 
+            OptimalBranchVertex * child_vertex_ = nullptr)
+{
+    parentVertex_ = parent_vertex_;
+    childVertex_ = child_vertex_;
+}
+
 
 void OptimalBranchVertex::computePosterior()
 {
@@ -41,7 +45,10 @@ void OptimalBranchVertex::resetBeliefEstimation()
     gazeObsVtx_->resetMarkov();
 }
 
-
+double OptimalBranchVertex::getTrueStatePosterior()
+{
+    return trueStatePosterior;
+}
 
 
 
