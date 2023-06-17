@@ -42,10 +42,13 @@ OptimalBranch::OptimalBranch(
     dontWantToBeCuedVtx_ = new OptimalBranchVertex(dont_want_to_be_cued_name);
 
 
-    //(4) The parameters of the optimal branch, as well as all its 
-    //vertices need to be set, which is the user's responsibility to 
-    //supply and implement.
-    setParams();
+    //[PSEUDO CODE]
+    /*
+    * (4) The parameters of the optimal branch, as well as all its 
+    * vertices need to be set, which is the user's responsibility to 
+    * supply and implement.
+    */
+    setParams(PARAMS);
 
 }
 
@@ -62,6 +65,8 @@ void OptimalBranch::resetBeliefEstimation()
         
 void OptimalBranch::updateBeliefEstimation()
 {
+
+    
     for(int i = 0 ; i < optimalBranchTaskVertices.size(); i++)
     {
         optimalBranchTaskVertices[i]->computePosterior();

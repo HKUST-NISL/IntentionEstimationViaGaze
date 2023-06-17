@@ -34,20 +34,37 @@ class OptimalBranchVertex
         void setupConnection(
             OptimalBranchVertex * parent_vertex_ = nullptr, 
             OptimalBranchVertex * child_vertex_ = nullptr);
+        
+        //[PSEUDO CODE]
+        /*
+        * Process observations using the two observation vertices'
+        * respective procObs() method
+        * The exact implementation is system / task dependent.
+        */
+        void procObs(NEW_ACTION_GAZE_OBS)
+        {
+            actionObsVtx_->procObs(NEW_ACTION_OBS);
+            gazeObsVtx_->procObs(NEW_GAZE_OBS);
+        }
 
-        void procObs(
-            //Process observations using the two observation vertices'
-            //respective procObs() method
-            //The exact implementation is system / task dependent.
-        );
+        //[PSEUDO CODE]
+        /*
+        * Parameters supplied by the user
+        * This includes:
+        * prior for true / false intention
+        * Markov chain parameters for gaze obs vtx 
+        * Markov chain prameters for action obs vtx
+        */
+        void setParams(PARAMS)
+        {
+            //(1) Params for this vertex itself is indicated in the class definiton
+            FALSE_STATE_PRIOR = 
+            TRUE_STATE_PRIOR = 
 
-        void setParams(
-            //Parameters supplied by the user
-            //This includes:
-            //prior for true / false intention
-            //Markov chain parameters for gaze obs vtx 
-            //Markov chain prameters for action obs vtx
-        );
+            //(2) Params for each observation vertiex
+            actionObsVtx_->setParams(ACTION_PARAMS);
+            gazeObsVtx_->setParams(GAZE_PARAMS);
+        };
 
         void computePosterior();
 

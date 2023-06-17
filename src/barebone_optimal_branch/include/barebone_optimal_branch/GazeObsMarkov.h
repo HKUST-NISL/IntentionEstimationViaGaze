@@ -65,9 +65,15 @@ class GazeMarkov
             resetChain();
         }
         
-        void setChainParams(
-            //Parameters of this chain is to be supplied by the user.
-        );
+        //[PSEUDO CODE]
+        /*
+        * Parameters of this chain 
+        * is to be supplied by the user.
+        */
+        void setChainParams(PARAMS)
+        {
+            //Parameters to be specified could be seen in class definition
+        }
 
         void updateChain(const Obs& obs_this)
         {//Update chain using the latest observation supplied by the user
