@@ -8,6 +8,4 @@
 
 (4) One possible tool for setting up the task definitions and perform planning in HTN to use with the optimal branch is HATP from LAAS, https://www.openrobots.org/wiki/HATP
 
-(5) A template pseudo code of how to use the optimal branch object is provided. See "template_call_per_iteration()" in "OptimalBranch.h"
-
-(6) Pseudo code guidelines are provided to indicate how parameters / discretized observations could be supplied to the model.
+(5) Pseudo code guidelines are provided to indicate how parameters / discretized observations could be supplied to the model.
