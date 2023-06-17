@@ -36,7 +36,7 @@ void OptimalBranchVertex::computePosterior()
     falseStatePosterior = 1 - trueStatePosterior;
 }
 
-void OptimalBranchVertex::resetBeliefEstimation()
+void OptimalBranchVertex::resetIntentionEstimation()
 {
     trueStatePosterior = TRUE_STATE_PRIOR;
     falseStatePosterior = FALSE_STATE_PRIOR;

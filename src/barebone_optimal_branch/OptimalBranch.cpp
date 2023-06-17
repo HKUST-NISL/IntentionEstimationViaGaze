@@ -52,21 +52,17 @@ OptimalBranch::OptimalBranch(
 
 }
 
-void OptimalBranch::resetBeliefEstimation()
+void OptimalBranch::resetIntentionEstimation()
 {
-    int start_idx = 0;
-
-    for(int i = start_idx ; i < optimalBranchTaskVertices.size(); i++)
+    for(int i = 0 ; i < optimalBranchTaskVertices.size(); i++)
     {
-        optimalBranchTaskVertices[i]->resetBeliefEstimation();
+        optimalBranchTaskVertices[i]->resetIntentionEstimation();
     }
-    dontWantToBeCuedVtx_->resetBeliefEstimation();
+    dontWantToBeCuedVtx_->resetIntentionEstimation();
 }
         
-void OptimalBranch::updateBeliefEstimation()
-{
-
-    
+void OptimalBranch::updateIntentionEstimation()
+{    
     for(int i = 0 ; i < optimalBranchTaskVertices.size(); i++)
     {
         optimalBranchTaskVertices[i]->computePosterior();

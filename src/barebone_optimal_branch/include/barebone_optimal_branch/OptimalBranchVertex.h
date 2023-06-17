@@ -68,7 +68,7 @@ class OptimalBranchVertex
 
         void computePosterior();
 
-        void resetBeliefEstimation();
+        void resetIntentionEstimation();
 
         double getTrueStatePosterior();
 };

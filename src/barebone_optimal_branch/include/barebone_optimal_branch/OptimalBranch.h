@@ -53,12 +53,12 @@ class OptimalBranch
         void template_call_per_iteration(NEW_OBS_ACTION_GAZE)
         {
             procObservations(NEW_OBS_ACTION_GAZE);
-            updateBeliefEstimation();
+            updateIntentionEstimation();
             int level_idx_to_cue = chooseActionByPolicy();
         };
 
 
-        void resetBeliefEstimation();
+        void resetIntentionEstimation();
 
     private:
 
@@ -83,7 +83,7 @@ class OptimalBranch
             dontWantToBeCuedVtx_->procObs(NEW_OBS_ACTION_GAZE);
         }
 
-        void updateBeliefEstimation();        
+        void updateIntentionEstimation();        
 
         const int chooseActionByPolicy();
 };
